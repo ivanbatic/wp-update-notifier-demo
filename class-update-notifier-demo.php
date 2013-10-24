@@ -400,10 +400,9 @@ class update_notifier_demo {
      */
     protected function build_upgrade_link($type, array $params = array()) {
         $url = network_admin_url('update-core.php')
-            . "?action=do-{$type}-upgrade&_wpnonce="
-            . wp_create_nonce('upgrade-core')
-            . '&'
-            . http_build_query($params);
+            . "?action=do-{$type}-upgrade"
+//            . '&_wpnonce=' . wp_create_nonce('upgrade-core') // Can't generate a real nonce because users differ
+            . '&' . http_build_query($params);
         return $url;
     }
 
